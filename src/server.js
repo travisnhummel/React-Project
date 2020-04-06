@@ -8,6 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/build')));
 
+// wrap functions around this to use MongoDB
 const withDB = async (operations, res) => {
     try {
         const client = await MongoClient.connect('mongodb://localhost:27017', { useNewUrlParser: true });
